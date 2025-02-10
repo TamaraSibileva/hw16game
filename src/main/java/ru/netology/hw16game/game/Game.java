@@ -13,13 +13,12 @@ public class Game {
     public int round(String playerName1, String playerName2) {
         Player player1 = null;
         Player player2 = null;
-        for (Player player : map.values()) {
-            if (player.getName().equals(playerName1)) {
-                player1 = player;
-            }
-            if (player.getName().equals(playerName2)) {
-                player2 = player;
-            }
+
+        if (map.containsKey(playerName1)) {
+            player1 = map.get(playerName1);
+        }
+        if (map.containsKey(playerName2)) {
+            player2 = map.get(playerName2);
         }
         if (player1 == null) {
             throw new NotRegisteredException(
